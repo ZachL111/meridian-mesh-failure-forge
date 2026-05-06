@@ -1,0 +1,73 @@
+{
+  "repo": "meridian-mesh-failure-forge",
+  "language": "SQL",
+  "category": "Distributed systems",
+  "goal": "Implement an SQL distributed systems project for failure incremental indexing, using append-only fixtures and checkpoint recovery checks.",
+  "review_model": {
+    "terms": [
+      "quorum health",
+      "lease drift",
+      "replica lag",
+      "membership churn"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "quorum health",
+      "signal": 47,
+      "slack": 40,
+      "drag": 21,
+      "confidence": 75,
+      "score": 146,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "lease drift",
+      "signal": 74,
+      "slack": 45,
+      "drag": 19,
+      "confidence": 77,
+      "score": 213,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "replica lag",
+      "signal": 80,
+      "slack": 21,
+      "drag": 16,
+      "confidence": 78,
+      "score": 211,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "membership churn",
+      "signal": 53,
+      "slack": 20,
+      "drag": 23,
+      "confidence": 65,
+      "score": 122,
+      "lane": "watch"
+    },
+    {
+      "name": "stale",
+      "focus": "quorum health",
+      "signal": 78,
+      "slack": 35,
+      "drag": 25,
+      "confidence": 75,
+      "score": 191,
+      "lane": "ship"
+    }
+  ]
+}
