@@ -63,3 +63,9 @@ sqlite3 :memory: ".read tests/test.sql"
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-meridian-mesh-failure-detail.ps1
 
 sqlite3 :memory: ".read tests/domain_review.sql"
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-meridian-mesh-failure-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-meridian-mesh-failure-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

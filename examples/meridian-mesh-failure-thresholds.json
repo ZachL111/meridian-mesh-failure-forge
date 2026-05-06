@@ -1,0 +1,17 @@
+{
+  "repo": "meridian-mesh-failure-forge",
+  "thresholds": {
+    "signal": 3,
+    "slack": 2,
+    "confidence": 2,
+    "drag": 5,
+    "ship": 182,
+    "watch": 109
+  },
+  "terms": [
+    "quorum health",
+    "lease drift",
+    "replica lag",
+    "membership churn"
+  ]
+}
